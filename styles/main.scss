@@ -1,0 +1,196 @@
+// main.scss
+
+// Подключение переменных и миксинов
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Общие стили
+body {
+	font-family: $font-family;
+	margin: 0;
+	padding: 0;
+	background-color: $background-color;
+	color: $text-color;
+}
+
+// Шапка
+.header {
+	@include fixed-header;
+}
+
+.nav {
+	display: flex;
+	gap: 20px;
+
+	a {
+		text-decoration: none;
+		color: $text-color;
+		font-size: 16px;
+		font-weight: bold;
+
+		&:hover {
+			color: $primary-color;
+		}
+	}
+}
+
+header-actions {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.search {
+	position: relative;
+
+	input {
+		padding: 8px 12px;
+		border: 1px solid $secondary-color;
+		border-radius: 4px;
+		outline: none;
+	}
+}
+
+.auth-icon {
+	font-size: 20px;
+	cursor: pointer;
+	color: $text-color;
+
+	&:hover {
+		color: $primary-color;
+	}
+}
+// Слайдер
+.slider {
+	width: 100%;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: $hover-color;
+
+	.slide {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		opacity: 0;
+		transition: opacity 0.5s ease-in-out;
+
+		&.active {
+			opacity: 1;
+		}
+	}
+
+	.slider-dots {
+		position: absolute;
+		bottom: 20px;
+		left: 50%;
+		transform: translateX(-50%);
+		display: flex;
+		gap: 8px;
+	}
+
+	.dot {
+		width: 12px;
+		height: 12px;
+		background: $secondary-color;
+		border-radius: 50%;
+		cursor: pointer;
+		transition: background 0.3s;
+
+		&.active {
+			background: $primary-color;
+		}
+	}
+}
+// Книги
+.books {
+	width: 75%;
+	float: right;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	padding: 20px;
+
+	.book-card {
+		@include book-card;
+	}
+}
+
+// Корзина
+.cart {
+	@include cart;
+}
+.book-card {
+	width: 200px;
+	padding: 15px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	text-align: center;
+	background: white;
+	transition: 0.3s;
+}
+
+.book-card:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.book-cover {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 5px;
+}
+
+.book-title {
+	font-size: 16px;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.book-author {
+	font-size: 14px;
+	color: #555;
+}
+
+.book-description {
+	font-size: 14px;
+	color: #777;
+	height: 45px;
+	overflow: hidden;
+}
+
+.book-rating {
+	font-size: 14px;
+	color: #ff9800;
+}
+
+.book-price {
+	font-size: 16px;
+	font-weight: bold;
+	color: #007bff;
+}
+
+.buy-btn {
+	margin-top: 10px;
+	padding: 8px;
+	width: 100%;
+	border: none;
+	border-radius: 5px;
+	background: #007bff;
+	color: white;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.buy-btn:hover {
+	background: #0056b3;
+}
+
+.buy-btn.in-cart {
+	background: #28a745;
+}
