@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bookstore</title>
+	<link rel="stylesheet" href="dist/main.css"> <!-- Путь к скомпилированному CSS -->
+</head>
+
+<body>
+
+	<!-- 📌 Шапка сайта -->
+	<header class="header">
+		<div class="logo">Bookstore</div>
+		<nav class="nav">
+			<a href="#">Books</a>
+			<a href="#">Audiobooks</a>
+			<a href="#">Stationary & Gifts</a>
+			<a href="#">Blog</a>
+		</nav>
+		<div class="header-actions">
+			<div class="search">
+				<input type="text" placeholder="Search for books...">
+			</div>
+			<div class="cart-icon">🛒</div>
+		</div>
+	</header>
+
+	<!-- 📌 Слайдер -->
+	<section class="slider">
+		<div class="slide active" style="background-image: url('images/slide1.jpg');"></div>
+		<div class="slide" style="background-image: url('images/slide2.jpg');"></div>
+		<div class="slide" style="background-image: url('images/slide3.jpg');"></div>
+
+		<div class="slider-dots">
+			<span class="dot active"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+		</div>
+	</section>
+
+	<!-- 📌 Основной контейнер -->
+	<main class="main-content">
+		<aside class="categories">
+			<div class="category active" data-category="fiction">Fiction</div>
+			<div class="category" data-category="history">History</div>
+			<div class="category" data-category="science">Science</div>
+			<div class="category" data-category="fantasy">Fantasy</div>
+		</aside>
+
+		<section class="books-container">
+			<!-- 📚 Сюда будут загружаться карточки книг -->
+		</section>
+
+		<button class="load-more">Load more</button>
+	</main>
+
+	<!-- 📌 Подключение скрипта -->
+	<script src="dist/bundle.js"></script> <!-- Webpack соберёт JS в этот файл -->
+</body>
+
+</html>

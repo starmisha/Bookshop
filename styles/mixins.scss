@@ -1,0 +1,77 @@
+// Миксин для фиксированной шапки
+@mixin fixed-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 116px;
+	background: white;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 30px;
+	z-index: 1000;
+}
+
+// Миксин для кнопок
+@mixin button($bg-color, $text-color) {
+	background: $bg-color;
+	color: $text-color;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background 0.3s ease-in-out;
+
+	&:hover {
+		background: darken($bg-color, 10%);
+	}
+}
+
+// Миксин для карточек книг
+@mixin book-card {
+	background: white;
+	padding: 15px;
+	width: calc(33.333% - 20px);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	text-align: center;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+
+	.title {
+		font-size: 18px;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+
+	.author {
+		font-size: 14px;
+		color: gray;
+	}
+
+	.price {
+		font-size: 16px;
+		color: #e63946;
+		margin: 10px 0;
+	}
+
+	.buy-button {
+		@include button(#007bff, white);
+	}
+}
+
+// Миксин для блока корзины
+@mixin cart {
+	position: fixed;
+	top: 50px;
+	right: 20px;
+	width: 300px;
+	background: white;
+	padding: 15px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
